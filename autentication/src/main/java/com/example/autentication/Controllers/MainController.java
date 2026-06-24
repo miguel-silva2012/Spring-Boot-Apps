@@ -3,30 +3,32 @@ package com.example.autentication.Controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.autentication.Domain.User;
-import com.example.autentication.Services.MainService;
+import com.example.autentication.Models.User;
+import com.example.autentication.Services.UserService;
 
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
 public class MainController {
-    private final MainService mainService;
 
-    @GetMapping("/{id}")
-    public User getMethodName(@PathVariable int id) {
-        return mainService.getUserById(id);
+    private final UserService userService;
+
+    @GetMapping("/get")
+    public List<User> getMethodName() {
+        return userService.getAllUser();
     }
 
-    @PostMapping("/users")
-    public User postMethodName(@RequestBody User entity) {      
-        return mainService.saveUser(entity);
+    @PostMapping("/post")
+    public User postMethodName(@RequestBody User entity) {
+        return userService.saveUser(entity);
     }
     
 }
