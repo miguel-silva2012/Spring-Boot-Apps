@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.contact_app.Models.Contact;
 import com.example.contact_app.Service.ContactService;
 
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -17,13 +19,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/apicontact")
 public class ContactController {
     private final ContactService contactService;
-
-    public ContactController(ContactService contactseService) {
-        this.contactService = contactseService;
-    }
 
     @PostMapping
     public Contact postMethodName(@RequestBody Contact contact) {
