@@ -1,5 +1,6 @@
 package com.example.autentication.Models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,7 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "tableUsers")
+@Table(name = "tb_users")
 @Getter
 public class User {
     @Id
@@ -17,5 +18,21 @@ public class User {
     private Integer id;
 
     @Setter
-    private String email, name, password;
+    @Column(nullable = false, unique = true)
+    private String name;
+
+    @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
+    public User() {
+    }
+
+    public User(String email, String name, String password) {
+        this.email = email;
+        this.name = name;
+        this.password = password;
+    }
 }
