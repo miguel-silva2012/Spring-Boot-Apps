@@ -14,6 +14,19 @@ Coloco todas essas APIs aqui com o intuito de aprender Spring Boot no java, incl
     - Hibernate(H2 database).
 - Spring Security.
 
-## Contribuições
+## Templates para novos projetos spring
 
-- contribuições são sempre bem vindas.
+Configurando a conecção com um banco de dados **PostgreSQL**
+
+```
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/<name-of-the-DB>
+spring.datasource.username=postgres
+spring.datasource.password=<your-password>
+spring.jpa.generate-ddl=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+

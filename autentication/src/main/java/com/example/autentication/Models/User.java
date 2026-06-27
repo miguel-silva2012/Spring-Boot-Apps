@@ -21,13 +21,11 @@ public class User {
 
     @Setter
     @Column(nullable = false, unique = true)
-    private String name;
+    private String name, password;
 
+    @Setter
     @Column(nullable = false)
     private String email;
-
-    @Column(nullable = false, unique = true)
-    private String password;
 
     public User(String email, String name, String password) {
         this.email = email;
