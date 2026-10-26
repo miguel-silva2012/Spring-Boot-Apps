@@ -20,12 +20,12 @@ public class User {
     private Integer id;
 
     @Setter
-    @Column(nullable = false, unique = true)
-    private String name, password;
+    @Column(nullable = false)
+    private String email;    
 
     @Setter
-    @Column(nullable = false)
-    private String email;
+    @Column(nullable = false, unique = true) 
+    private String name, password;
 
     public User(String email, String name, String password) {
         this.email = email;
